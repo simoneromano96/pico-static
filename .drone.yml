@@ -1,0 +1,20 @@
+---
+kind: pipeline
+name: build
+
+steps:
+  - name: build
+    image: plugins/docker
+    settings:
+      registry: ghcr.io
+      username: 
+        from_secret: github_username
+      password: 
+        from_secret: github_token
+      repo: ghcr.io/simoneromano96/pico-static/pico-static
+      context: .
+      dockerfile: ./.docker/pico-static.dockerfile
+      auto_tag: true
+      target: production
+      config:
+        from_secret: docker_auth_config
