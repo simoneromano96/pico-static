@@ -2,9 +2,9 @@ FROM thevlang/vlang:alpine AS build
 
 WORKDIR /pico-static
 
-COPY . .
+COPY ./src .
 
-RUN v ./src/main.v
+RUN v ./main.v
 
 FROM alpine AS production
 
