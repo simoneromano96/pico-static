@@ -27,7 +27,7 @@ fn file_extension_to_mime_type(file_extension string) string {
 	println(file_extension)
 	mime_type := file_extension_mime_type_map[file_extension] or { 
 		println("Could not find the mime type")
-		"application/octet-stream" 
+		"application/octet-stream"
 	}
 	println(mime_type)
 	return mime_type
