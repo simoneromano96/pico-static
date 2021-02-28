@@ -1,0 +1,3 @@
+[submodule "mimedb"]
+	path = mimedb
+	url = https://github.com/simoneromano96/mime-db.git
