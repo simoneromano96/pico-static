@@ -2,7 +2,11 @@ FROM thevlang/vlang:alpine AS build
 
 WORKDIR /pico-static
 
+RUN ls -al
+
 COPY . .
+
+RUN ls -al
 
 RUN v ./main.v
 
