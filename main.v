@@ -6,12 +6,12 @@ import mimedb
 const (
 	public_path = getenv("PUBLIC_PATH")
 	server_port = getenv("SERVER_PORT")
-	file_extension_mime_type_map = map{
-		"html": "text/html"
-		"htm": "text/html"
-		"js": "application/javascript"
-		"css": "text/css"
-	}
+	// file_extension_mime_type_map = map{
+	// 	"html": "text/html"
+	// 	"htm": "text/html"
+	// 	"js": "application/javascript"
+	// 	"css": "text/css"
+	// }
 )
 
 fn file_path_to_file_extension(file_path string) ?string {
@@ -26,7 +26,7 @@ fn file_path_to_file_extension(file_path string) ?string {
 
 fn file_extension_to_mime_type(file_extension string) string {
 	println(file_extension)
-	mime_type := file_extension_mime_type_map[file_extension] or { 
+	mime_type := mimedb.mimedb[file_extension] or { 
 		println("Could not find the mime type")
 		"application/octet-stream"
 	}
@@ -68,7 +68,6 @@ fn handler(req picohttpparser.Request, mut res picohttpparser.Response) {
 }
 
 fn main() {
-	println(mimedb.db)
 	port := server_port.int()
 	println('Starting webserver on http://127.0.0.1:$port/ ...')
 	picoev.new(port, &handler).serve()
