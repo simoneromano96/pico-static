@@ -68,6 +68,7 @@ fn handler(req picohttpparser.Request, mut res picohttpparser.Response) {
 }
 
 fn main() {
+	println(mimedb.db)
 	port := server_port.int()
 	println('Starting webserver on http://127.0.0.1:$port/ ...')
 	picoev.new(port, &handler).serve()
