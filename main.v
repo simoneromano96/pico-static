@@ -1,6 +1,7 @@
 import picoev
 import picohttpparser
 import os
+import mimedb
 
 const (
 	public_path = getenv("PUBLIC_PATH")
