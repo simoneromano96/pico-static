@@ -6,10 +6,10 @@ name: build
 #   depth: 50
 
 steps:
-  - name: pull-with-submodules
+  - name: pull-submodules
     image: alpine/git
     commands:
-    - git pull --recurse-submodules
+    - git submodule update --init --recursive
 
   - name: build
     image: plugins/docker
