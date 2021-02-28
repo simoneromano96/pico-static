@@ -8,6 +8,8 @@ COPY . .
 
 RUN ls -al
 
+RUN ls -al ./mimedb
+
 RUN v ./main.v
 
 FROM alpine AS production
